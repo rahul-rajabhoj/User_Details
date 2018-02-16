@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="js/angular.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+
+    <title>User Details</title>
+  </head>
+  <body ng-app="app" ng-controller="UserController">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href=""><img id="logo" src="logo.png"></a>
+    </nav>
+
+     <div class="container-fluid ">
+     	<div id="main-area">
+     		<div id="enter-details">
+		        <div class="container-fluid">
+		        	<div><h5 class="pos-center">User Details</h5>
+	          		</div>
+		            <hr>
+		            <form name="form" >
+		              <div class="row">
+		                <div class="col-sm-7">
+		                  <div class="row">
+		                    <div class="form-group col-sm-6">
+		                      <input type="text" class="form-control" name="fname" ng-model="newuser.fname" placeholder="First Name" required>
+		                      <span class="red-text" ng-if="form.fname.$touched && form.fname.$invalid">First name cannot be empty</span>
+		                    </div>
+		                    <div class="form-group col-sm-6">
+		                      <input type="text" class="form-control" name="phone" ng-model="newuser.phone" ng-pattern="ph_numbr" placeholder="Contact Number" required>
+		                      <span class="red-text" ng-if="form.phone.$error.required && form.phone.$dirty">Contact number cannot be empty</span> 
+		                      <span class="red-text" ng-show="form.phone.$error.pattern">Please enter a 10 digit number</span>            
+		                    </div>
+		                  </div>
+
+		                  <div class="row">
+		                    <div class="form-group col-sm-6">
+		                      <input type="text" class="form-control" name="lname" ng-model="newuser.lname" placeholder="Last Name" required>
+		                      <span class="red-text" ng-if="form.lname.$touched && form.lname.$invalid">Last name cannot be empty</span>
+		                    </div>
+		                    <div class="form-group col-sm-6">
+		                      <input type="email" class="form-control" name="email" ng-model="newuser.email" placeholder="Email ID" ng-pattern="eml_add" ng-required="true">
+		                      <span class="red-text" ng-if="form.email.$error.required && form.email.$dirty">Email ID is a required field</span>
+            					<span class="red-text" ng-show="form.email.$error.pattern">Invalid Email ID</span>
+		                    </div>
+		                  </div>
+		                </div>
+
+		                  <div class="col-sm-5">
+		                  <div class="form-group">
+		                    <textarea  class="form-control" name="address" ng-model="newuser.address" placeholder="Address" required></textarea>
+		                    <span class="red-text" ng-if="form.address.$touched && form.address.$invalid">Address cannot be empty</span>
+		                  </div>  
+
+		                </div> 
+		              </div>
+
+		              <div class="pos-center">
+		                <button type="submit" class="btn submit" id="add-btn"  ng-disabled="form.$invalid" ng-click="saveUser()">Add</button>
+		              </div>
+		            </form>
+		        </div> 
+	        </div>
+	        <div id="show-details">
+	        	<div class="container-fluid table-responsive">
+	        		<table class="table table-striped">
+					  <thead>
+					    <tr>
+					      <th scope="col">First Name</th>
+					      <th scope="col">Last Name</th>
+					      <th scope="col">Contact Number</th>
+					      <th scope="col">Email ID</th>
+					      <th scope="col">Address</th>
+					      <th scope="col">Actions</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr ng-repeat="user in users">
+					      <td>{{ user.fname }}</td>
+					      <td>{{ user.lname }}</td>
+			              <td>{{ user.phone }}</td>
+			              <td>{{ user.email }}</td>
+			              <td>{{ user.address }}</td>
+			              <td> <a href="javascript:void(0)" ng-click="edit(user.id)"><i class="fas fa-pencil-alt"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" ng-click="delete(user.id)"><i class="fas fa-trash-alt"></i></a></td>
+					    </tr>
+					  </tbody>
+					</table>
+	        	</div>
+	        </div>		
+     	</div>
+     </div>
+
+
+     
+          
+    <script src="js/jquery.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

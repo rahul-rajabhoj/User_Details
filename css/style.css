@@ -1,0 +1,68 @@
+.navbar{
+  background-color: #40B0D8!important;
+  height: 60px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#logo{
+    margin-top: 5px;
+    margin-left: 25px;
+    width: 256px;
+    height: 76px;
+}
+
+body{
+  background-color: #f4f4f4;
+}
+
+#main-area{
+  margin-top: 20px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
+
+#enter-details{
+  background-color: #f8f8f8;
+  padding: 15px 20px;
+}
+
+.pos-center{
+  text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
+
+#add-btn{
+  width: 100px;
+  background-color: #40B0D8;
+  color: white;
+}
+
+#show-details{
+  border-top: 1px solid #dbdbdb;
+  background-color: white;
+}
+
+textarea{
+  height: 100px;
+}
+
+input{
+  height: 50px;
+}
+
+thead{
+  background-color: #d9d9d9;
+}
+
+table{
+  margin-top: 20px;
+}
+
+.red-text{
+  color: red;
+}
